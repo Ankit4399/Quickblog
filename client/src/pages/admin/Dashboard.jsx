@@ -7,7 +7,8 @@ const Dashboard = () => {
     const [dashboardData, setDashboardData] = useState({
         blogs :0,
         comments :0,
-        drafts:0,recentBlogs:[]
+        drafts:0,
+        recentBlogs:[]
     })
 
     const fetchDashboard = async ()=>{
@@ -65,7 +66,7 @@ const Dashboard = () => {
                 </thead>
                 <tbody>
                     {dashboardData.recentBlogs.map((blog, index) => {
-                        return <BlogTableitem key = {blog.id} blog={blog} fetchBlogs={fetchDashboard} index = {index + 1} />
+                        return <BlogTableitem key = {blog._id || blog.id || index} blog={blog} fetchBlogs={fetchDashboard} index = {index + 1} />
                     })}
                 </tbody>
             </table>
